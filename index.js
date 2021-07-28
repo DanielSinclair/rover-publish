@@ -23,8 +23,8 @@ async function run() {
   try {
     const { graph, variant, federated, subgraph, schema, routingURL } = getInput()
     const args = ['--schema', schema]
-    if (federated) args.push(['--name', subgraph])
-    if (routingURL) args.push(['--routing-url', routingURL])
+    if (federated) args.push('--name', subgraph)
+    if (routingURL) args.push('--routing-url', routingURL)
     await rover([
       federated ? 'subgraph' : 'graph',
       'publish',
