@@ -1,0 +1,25 @@
+{
+  "name": "rover-publish-action",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepare": "ncc build index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielSinclair/rover-publish-action.git"
+  },
+  "author": "Daniel Sinclair",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DanielSinclair/rover-publish-action/issues"
+  },
+  "homepage": "https://github.com/DanielSinclair/rover-publish-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/exec": "^1.1.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.29.0"
+  }
+}

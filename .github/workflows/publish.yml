@@ -1,0 +1,21 @@
+name: "publish"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: rover publish
+      uses: ./
+      with:
+        graph: rover-actions
+        variant: current
+        federated: true
+        subgraph: products
+        schema: ./test/products.graphql
+      env:
+        APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
