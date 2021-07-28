@@ -1880,7 +1880,7 @@ const getInput = () => {
 
 async function run() {
   try {
-    const { schema, federated, subgraph, routingURL } = getInput()
+    const { graph, variant, federated, subgraph, schema, routingURL } = getInput()
     const args = ['--schema', schema]
     if (federated) args.push(['--name', subgraph])
     if (routingURL) args.push(['--routing-url', routingURL])

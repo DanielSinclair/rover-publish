@@ -28,6 +28,7 @@ jobs:
         graph: APOLLO_GRAPH_ID
         federated: true
         subgraph: accounts
+        schema: ./test/products.graphql
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
 ```
