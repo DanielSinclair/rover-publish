@@ -12,11 +12,6 @@ A GitHub Action to publish a schema to Apollo Studio using the Apollo [Rover CLI
 | schema      |         | yes                    |
 | routing_url |         | only for first publish |
 
-## outputs
-| name   | description                |
-| :----- | :------------------------- |
-| schema | base64 encoded fetched SDL |
-
 ## Usage
 ```
 jobs:
