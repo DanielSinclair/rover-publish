@@ -30,7 +30,7 @@ jobs:
     steps:
     - name: rover introspect
       id: introspect
-      uses: danielsinclair/rover-introspect-action@v1
+      uses: danielsinclair/rover-introspect@v1
       with:
         federated: true
         subgraph: products
