@@ -26,6 +26,8 @@ jobs:
         image: danielsinclair/apollo-example
     steps:
     - uses: actions/checkout@v2
+      with:
+        path: publish
     - name: rover introspect
       id: introspect
       uses: danielsinclair/rover-introspect-action@v1
@@ -38,7 +40,7 @@ jobs:
     - run: cat ${{ steps.introspect.outputs.path }}
     - name: rover publish
       id: publish
-      uses: ./
+      uses: ./publish/
       with:
         graph: rover-actions
         variant: current
