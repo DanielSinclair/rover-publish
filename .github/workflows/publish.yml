@@ -25,7 +25,6 @@ jobs:
       apollo:
         image: danielsinclair/apollo-example
     steps:
-    - uses: actions/checkout@v2
     - name: rover introspect
       id: introspect
       uses: danielsinclair/rover-introspect-action@v1
