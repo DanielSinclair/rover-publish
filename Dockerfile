@@ -5,4 +5,4 @@ COPY yarn.lock ./
 RUN yarn install --frozen-lockfile --ignore-scripts
 COPY . .
 RUN ls -al -R
-CMD ["node", "index.js"]
+CMD ["yarn", "start"]
