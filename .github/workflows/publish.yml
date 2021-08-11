@@ -34,3 +34,13 @@ jobs:
         server: http://apollo:3000/
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
+    - name: rover publish
+      uses: ./
+      with:
+        graph: rover-actions
+        variant: current
+        federated: true
+        subgraph: products
+        schema: ${{ steps.introspect.outputs.path }}
+      env:
+        APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
