@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  publish:
+  publish_1:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -25,9 +25,6 @@ jobs:
       apollo:
         image: danielsinclair/apollo-example
     steps:
-    - uses: actions/checkout@v2
-      with:
-        path: publish
     - name: rover introspect
       id: introspect
       uses: danielsinclair/rover-introspect-action@v1
@@ -37,15 +34,25 @@ jobs:
         server: http://apollo:3000/
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
-    - run: cat ../products.graphql
+    - uses: actions/upload-artifact@v2
+      with:
+        name: products.graphql
+        path: ${{ steps.introspect.outputs.path }}
+  publish_2:
+    needs: introspect
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v2
+        with:
+          name: products.graphql
     - name: rover publish
-      id: publish
-      uses: ./publish/
+      uses: ./
       with:
         graph: rover-actions
         variant: current
         federated: true
         subgraph: products
-        schema: ${{ steps.introspect.outputs.path }}
+        schema: products.graphql
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
