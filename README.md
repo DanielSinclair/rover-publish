@@ -15,7 +15,7 @@ A GitHub Action to publish a schema to Apollo Studio using the Apollo [Rover CLI
 ## Usage
 ```
 jobs:
-  publisj:
+  publish:
     runs-on: ubuntu-latest
     steps:
     - uses: danielsinclair/rover-publish-action@v1

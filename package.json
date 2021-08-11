@@ -1,9 +1,9 @@
 {
   "name": "rover-publish-action",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "prepare": "ncc build index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,5 @@
   "dependencies": {
     "@actions/core": "^1.4.0",
     "@actions/exec": "^1.1.0"
-  },
-  "devDependencies": {
-    "@vercel/ncc": "^0.29.0"
   }
 }
