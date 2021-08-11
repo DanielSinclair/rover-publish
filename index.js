@@ -25,7 +25,7 @@ const getInput = () => {
   if (federated && !subgraph) throw new Error('federated graph requires subgraph input')
   const path = core.getInput('path')
   const artifact = core.getInput('artifact')
-  if (!path || !artifact) throw new Error('path or artifact inputs are required')
+  if (!path && !artifact) throw new Error('path or artifact inputs are required')
   const routingURL = core.getInput('routing_url')
   return { graph, variant, federated, subgraph, path, artifact, routingURL }
 }
