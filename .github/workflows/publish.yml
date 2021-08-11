@@ -43,7 +43,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: products.graphql
-        path: ${{ steps.introspect.outputs.path }}
+        path: /introspect/products.graphql
   publish_2:
     needs: introspect
     runs-on: ubuntu-latest
