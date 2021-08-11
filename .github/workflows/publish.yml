@@ -7,6 +7,9 @@ on:
 jobs:
   publish_1:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: publish
     steps:
     - uses: actions/checkout@v2
     - name: rover publish
@@ -21,6 +24,9 @@ jobs:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
   introspect:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: introspect
     services:
       apollo:
         image: danielsinclair/apollo-example
@@ -34,8 +40,6 @@ jobs:
         server: http://apollo:3000/
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
-    - run: cd /; ls -al -R
-    - run: cat ${{ steps.introspect.outputs.path }}
     - uses: actions/upload-artifact@v2
       with:
         name: products.graphql
@@ -43,6 +47,9 @@ jobs:
   publish_2:
     needs: introspect
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: publish
     steps:
     - uses: actions/checkout@v2
     - uses: actions/download-artifact@v2
