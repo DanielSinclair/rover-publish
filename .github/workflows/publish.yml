@@ -37,7 +37,7 @@ jobs:
         server: http://apollo:3000/
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
-    - run: cat ${{ steps.introspect.outputs.path }}
+    - run: cat ../products.graphql
     - name: rover publish
       id: publish
       uses: ./publish/
