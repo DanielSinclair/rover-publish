@@ -1,6 +1,15 @@
 
 const core = require('@actions/core')
 const exec = require('@actions/exec')
+const artifact = require('@actions/artifact')
+const path = require('path');
+
+const downloadArtifact = async (name) => {
+  const client = artifact.create()
+  const options = { createArtifactFolder: false }
+  await client.downloadArtifact(name, __dirname, options)
+  return path.join(__dirname, `/${name}`)
+}
 
 const rover = async (args = []) => {
   const listeners = { }
@@ -13,15 +22,18 @@ const getInput = () => {
   const variant = core.getInput('variant')
   const federated = core.getInput('federated')
   const subgraph = core.getInput('subgraph')
-  const schema = core.getInput('schema')
-  const routingURL = core.getInput('routing_url')
   if (federated && !subgraph) throw new Error('federated graph requires subgraph input')
-  return { graph, variant, federated, subgraph, schema, routingURL }
+  const path = core.getInput('path')
+  const artifact = core.getInput('artifact')
+  if (!path || !artifact) throw new Error('path or artifact inputs are required')
+  const routingURL = core.getInput('routing_url')
+  return { graph, variant, federated, subgraph, path, artifact, routingURL }
 }
 
 async function run() {
   try {
-    const { graph, variant, federated, subgraph, schema, routingURL } = getInput()
+    const { graph, variant, federated, subgraph, path, artifact, routingURL } = getInput()
+    const schema = artifact ? await downloadArtifact(artifact) : path
     const args = ['--schema', schema]
     if (federated) args.push('--name', subgraph)
     if (routingURL) args.push('--routing-url', routingURL)

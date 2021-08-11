@@ -18,9 +18,12 @@ inputs:
   subgraph:
     description: 'subgraph name'
     required: false
-  schema:
-    description: 'the schema file'
-    required: true
+  path:
+    description: 'the schema path'
+    required: false
+  artifact:
+    description: 'the schema artifact name'
+    required: false
   routing_url: 
     description: 'the subgraph routing url'
     required: false

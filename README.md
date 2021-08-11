@@ -9,7 +9,8 @@ A GitHub Action to publish a schema to Apollo Studio using the Apollo [Rover CLI
 | variant     | current | no                     |
 | federated   | false   | no                     |
 | subgraph    |         | no, if federated false |
-| schema      |         | yes                    |
+| path        |         | no                    |
+| artifact    |         | no                  |
 | routing_url |         | only for first publish |
 
 ## Usage
@@ -23,7 +24,7 @@ jobs:
         graph: APOLLO_GRAPH_ID
         federated: true
         subgraph: products
-        schema: ./products.graphql
+        artifact: products.graphql
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
 ```

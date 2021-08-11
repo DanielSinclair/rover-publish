@@ -19,14 +19,11 @@ jobs:
         variant: current
         federated: true
         subgraph: products
-        schema: ./test/products.graphql
+        path: ./test/products.graphql
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
   introspect:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: introspect
     services:
       apollo:
         image: danielsinclair/apollo-example
@@ -40,23 +37,11 @@ jobs:
         server: http://apollo:3000/
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
-    - run: pwd
-    - run: ls
-    - uses: actions/upload-artifact@v2
-      with:
-        name: products.graphql
-        path: /introspect/products.graphql
   publish_2:
     needs: introspect
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: publish
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/download-artifact@v2
-      with:
-        name: products.graphql
     - name: rover publish
       uses: ./
       with:
@@ -64,6 +49,6 @@ jobs:
         variant: current
         federated: true
         subgraph: products
-        schema: products.graphql
+        artifact: products.graphql
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}

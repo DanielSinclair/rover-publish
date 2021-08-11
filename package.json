@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/DanielSinclair/rover-publish-action#readme",
   "dependencies": {
+    "@actions/artifact": "^0.5.2",
     "@actions/core": "^1.4.0",
     "@actions/exec": "^1.1.0"
   }
