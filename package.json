@@ -1,17 +1,17 @@
 {
-  "name": "rover-publish-action",
+  "name": "rover-publish",
   "version": "1.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DanielSinclair/rover-publish-action.git"
+    "url": "git+https://github.com/DanielSinclair/rover-publish.git"
   },
   "author": "Daniel Sinclair",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DanielSinclair/rover-publish-action/issues"
+    "url": "https://github.com/DanielSinclair/rover-publish/issues"
   },
-  "homepage": "https://github.com/DanielSinclair/rover-publish-action#readme",
+  "homepage": "https://github.com/DanielSinclair/rover-publish#readme",
   "dependencies": {
     "@actions/artifact": "^0.5.2",
     "@actions/core": "^1.4.0",

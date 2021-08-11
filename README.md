@@ -2,6 +2,10 @@
 
 A GitHub Action to publish a schema to Apollo Studio using the Apollo [Rover CLI](https://www.apollographql.com/docs/rover/).
 
+Works in tandem with:
+- [rover-fetch](https://github.com/DanielSinclair/rover-fetch)
+- [rover-introspect](https://github.com/DanielSinclair/rover-introspect)
+
 ## inputs
 | name        | default | required               |
 | :---------- | :------ | :--------------------- |
@@ -19,7 +23,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: danielsinclair/rover-publish-action@v1
+    - uses: danielsinclair/rover-publish@v1
       with:
         graph: APOLLO_GRAPH_ID
         federated: true
