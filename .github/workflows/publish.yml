@@ -34,6 +34,7 @@ jobs:
         server: http://apollo:3000/
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
+    - uses: actions/checkout@v2
     - name: rover publish
       uses: ./
       with:
