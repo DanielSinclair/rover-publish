@@ -25,6 +25,7 @@ jobs:
       apollo:
         image: danielsinclair/apollo-example
     steps:
+    - uses: actions/checkout@v2
     - name: rover introspect
       id: introspect
       uses: danielsinclair/rover-introspect-action@v1
@@ -35,8 +36,8 @@ jobs:
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
     - run: cat ${{ steps.introspect.outputs.path }}
-    - uses: actions/checkout@v2
     - name: rover publish
+      id: publish
       uses: ./
       with:
         graph: rover-actions
