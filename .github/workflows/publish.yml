@@ -19,7 +19,7 @@ jobs:
         schema: ./test/products.graphql
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
-  introspect-and-publish:
+  introspect:
     runs-on: ubuntu-latest
     services:
       apollo:
@@ -33,15 +33,5 @@ jobs:
         federated: true
         subgraph: products
         server: http://apollo:3000/
-      env:
-        APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
-    - name: rover publish
-      uses: ./
-      with:
-        graph: rover-actions
-        variant: current
-        federated: true
-        subgraph: products
-        schema: ${{ steps.fetch.outputs.path }}
       env:
         APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
