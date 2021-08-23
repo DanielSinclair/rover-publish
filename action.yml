@@ -27,6 +27,10 @@ inputs:
   routing_url: 
     description: 'the subgraph routing url'
     required: false
+  convert: 
+    description: 'convert non-federated graph'
+    default: false
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'

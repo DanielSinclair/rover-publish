@@ -7,16 +7,16 @@ Works in tandem with:
 - [rover-introspect](https://github.com/DanielSinclair/rover-introspect)
 
 ## inputs
-| name        | default | required                     |
-| :---------- | :------ | :--------------------------- |
-| graph       |         | yes                          |
-| variant     | current | no                           | 
-| federated   | false   | no                           |
-| subgraph    |         | no, if federated false       |
-| path        |         | no                           |
-| artifact    |         | no                           |
-| routing_url |         | only for first publish       |
-| convert     | false   | convert non-federated graphs |
+| name        | default | required                    |
+| :---------- | :------ | :-------------------------- |
+| graph       |         | yes                         |
+| variant     | current | no                          | 
+| federated   | false   | no                          |
+| subgraph    |         | no, if federated false      |
+| path        |         | no                          |
+| artifact    |         | no                          |
+| routing_url |         | only for first publish      |
+| convert     | false   | convert non-federated graph |
 
 ## Usage
 ```
